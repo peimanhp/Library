@@ -13,8 +13,12 @@
   src: url(../resources/LibreCaslonText-Bold.ttf);
 }
 
+:root {
+  --paper-color: #f6f6f6;
+}
+
 * {
-  font-family: 'montserrat', sans-serif;  
+  font-family: "montserrat", sans-serif;
   font-size: 16px;
   text-decoration: none;
   box-sizing: border-box;
@@ -33,6 +37,49 @@ body {
   font-weight: 700;
 }
 
+/* search start */
+.searchbar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.searchbar:hover {
+  background-color: var(--paper-color);
+}
+
+.search_input {
+  color: black;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color: transparent;
+  line-height: 40px;
+  transition: width 0.2s linear;
+}
+.searchbar:hover > .search_input {
+  padding: 0 10px;
+  width: 320px;
+  caret-color: black;
+  transition: width 0.2s linear;
+}
+.searchbar:hover > .search_icon {
+  background: var(--paper-color);
+}
+.search_icon {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+} /* search end */
+
 .books {
   margin-top: 70px;
   padding: 30px;
@@ -45,7 +92,7 @@ body {
 }
 
 .card-body {
-  background-color: #F6F6F6;
+  background-color: var(--paper-color);
 }
 
 .plus {
@@ -54,34 +101,36 @@ body {
   line-height: 0;
   font-size: 10rem;
   font-weight: 100;
-  color: #DCDCDC;
+  color: #dcdcdc;
 }
 
 .new-item {
-  background-color: #F6F6F6;
+  background-color: var(--paper-color);
 }
 
 .new-item:hover {
-  cursor: pointer;  
-  box-shadow: 2px 2px 5px #DAD6CA;  
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #dad6ca;
   transition: 0.2s ease-In-Out;
 }
 
-.new-item:hover * {  
-  color: #808080;  
+.new-item:hover * {
+  color: #808080;
   transition: 0.2s ease-In-Out;
 }
 
 .exit img {
   scale: 1.5;
-  filter:invert(54%) sepia(0%) saturate(85%) hue-rotate(188deg) brightness(93%) contrast(101%);
+  filter: invert(54%) sepia(0%) saturate(85%) hue-rotate(188deg) brightness(93%)
+    contrast(101%);
 }
 
 .exit img:hover {
-  cursor: pointer;  
+  cursor: pointer;
   scale: 1.7;
   transform: rotate(90deg);
-  filter: invert(15%) sepia(96%) saturate(7466%) hue-rotate(360deg) brightness(114%) contrast(108%);
+  filter: invert(15%) sepia(96%) saturate(7466%) hue-rotate(360deg)
+    brightness(114%) contrast(108%);
   transition: 0.1s ease-In-Out;
 }
 
@@ -94,7 +143,7 @@ body {
 
 footer {
   color: black;
-  background-color: #CEAF8C;
+  background-color: #ceaf8c;
   margin-top: auto;
   left: 0;
   bottom: 0;
@@ -132,7 +181,7 @@ footer {
 }
 
 .my-modal.show {
-  transform: scale(1);  
+  transform: scale(1);
 }
 
 #read_it {
