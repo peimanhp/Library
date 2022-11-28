@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container shadow books">
+            <div class="row m-auto">
+                <div class="col col-3 ">
+                    <div class="card h-100 text-bg-light rounded-4 mx-auto" style="max-width: 18rem;">
+                        <div class="card-header rounded-top-4 d-flex justify-content-between">
+                            <p class="m-0">No. 1</p>
+                            <div class="exit"><img src="./resources/x-circle.svg" alt="exit"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Book title</h5>
+                            <p class="mb-1">Author:</p>
+                            <p class="mb-2">Pages:</p>
+                            <div class="form-check form-switch mb-2">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="flexSwitchCheckChecked" checked>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Read</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-3">
+                    <div class="mx-auto h-100 border rounded-4 d-flex align-items-center justify-content-center new-item"
+                        style="max-width: 18rem;">
+                        <p class="plus">+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            Copyright © 2022 Peiman Hosseini
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <!-- winner pop-up message -->
+    <div class="overlay rounded-3 d-flex justify-content-center align-items-center" id="modal_container">
+        <div class="my-modal shadow text-center">
+            <h3 class="mb-4" id="add_new_book">Add new book</h3>
+            <input class="form-control my-3" type="text" placeholder="Title" aria-label="title" id="new_title">
+            <input class="form-control my-3" type="text" placeholder="Author" aria-label="author" id="new_author">
+            <input class="form-control my-3" type="text" placeholder="Pages" aria-label="pages" id="new_pages">
+            <div class="d-flex justify-content-center">
+                <p>have you read it?</p>
+                <input class="form-check-input ms-3" type="checkbox" value="false" id="read_it">
+            </div>
+            <button class="btn btn-outline-success px-4" id="submit">Submit</button>
+        </div>
+    </div>
+
+    <script src="./js/book.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
