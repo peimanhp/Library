@@ -29,6 +29,10 @@ body {
   background-color: #f2e4cf !important;
 }
 
+.my-nav h1 {
+  font-weight: 700;
+}
+
 .books {
   margin-top: 70px;
   padding: 30px;
