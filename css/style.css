@@ -14,7 +14,7 @@
 }
 
 :root {
-  --paper-color: #f6f6f6;
+  --paper-color: #F8F9FA;
 }
 
 * {
@@ -91,9 +91,9 @@ body {
   font-family: libreBold;
 }
 
-.card-body {
+/* .card-body {
   background-color: var(--paper-color);
-}
+} */
 
 .plus {
   margin: 0;
@@ -104,8 +104,13 @@ body {
   color: #dcdcdc;
 }
 
+#book {
+  display: none;
+}
+
 .new-item {
   background-color: var(--paper-color);
+  min-height: 199px;
 }
 
 .new-item:hover {
@@ -163,7 +168,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 
 .overlay.show {
@@ -178,6 +183,7 @@ footer {
   border-radius: 10px;
   padding: 30px 30px;
   transform: scale(0);
+  transition: 0.1s ease-in-out;
 }
 
 .my-modal.show {
