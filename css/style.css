@@ -124,13 +124,13 @@ body {
   transition: 0.2s ease-In-Out;
 }
 
-.exit img {
+.remove img {
   scale: 1.5;
   filter: invert(54%) sepia(0%) saturate(85%) hue-rotate(188deg) brightness(93%)
     contrast(101%);
 }
 
-.exit img:hover {
+.remove img:hover {
   cursor: pointer;
   scale: 1.7;
   transform: rotate(90deg);
