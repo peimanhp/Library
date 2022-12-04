@@ -73,8 +73,10 @@ function addNewBook() {
   console.log(newBook.info());
   let clone = book.cloneNode(true);
   clone.id = "book" + bookNumber++;
-  const removeBtn = clone.querySelector(".remove");
-  removeBtn.addEventListener("click", removeBook);
+  clone.querySelector(".remove").addEventListener("click", removeBook);
+  clone
+    .querySelector(".read-switch")
+    .addEventListener("click", changeReadStatus);
   parentBooks.insertBefore(clone, addNew);
 
   // newTitle.value = '';
@@ -100,10 +102,17 @@ function removeBook(e) {
     }
   });
   // rename title of each card
-
   for (let i = 0; i < nums.length; i++) {
     nums[i].innerText = `No. ${i}`;
   }
   bookNumber--;
   console.log(myLibrary);
+}
+
+function changeReadStatus(e) {
+  let bookId =
+    e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+  let indexInArray = myLibrary.findIndex((x) => x.bookId === bookId);
+  if (myLibrary[indexInArray].read) myLibrary[indexInArray].read = false;
+  else myLibrary[indexInArray].read = true;
 }
