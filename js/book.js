@@ -48,11 +48,11 @@ function removeModal(e) {
   modal.classList.remove("show");
 }
 
-submit.addEventListener("click", addNewBook);
+submit.addEventListener("click", addNewBookToArray);
 
 let bookNumber = 1;
 
-function addNewBook() {
+function addNewBookToArray() {
   const newBook = new Book(
     bookNumber,
     newTitle.value,
@@ -64,13 +64,19 @@ function addNewBook() {
   myLibrary.push(newBook);
   console.log(myLibrary);
 
-  numbers.innerText = `No. ${myLibrary[myLibrary.length - 1].num}`;
-  title.innerText = myLibrary[myLibrary.length - 1].title;
-  author.innerText = `Author: ${myLibrary[myLibrary.length - 1].author}`;
-  pages.innerText = `Pages: ${myLibrary[myLibrary.length - 1].pages}`;
-  readToggle.checked = myLibrary[myLibrary.length - 1].read;
+  addBookToLibrary();
+}
 
-  console.log(newBook.info());
+function addBookToLibrary() {
+  let books = document.getElementById(`book${bookNumber}`);
+  console.log(books);
+
+  numbers.innerText = `No. ${bookNumber}`;
+  title.innerText = myLibrary[bookNumber - 1].title;
+  author.innerText = `Author: ${myLibrary[bookNumber - 1].author}`;
+  pages.innerText = `Pages: ${myLibrary[bookNumber - 1].pages}`;
+  readToggle.checked = myLibrary[bookNumber - 1].read;
+
   let clone = book.cloneNode(true);
   clone.id = "book" + bookNumber++;
   clone.querySelector(".remove").addEventListener("click", removeBook);
@@ -79,10 +85,10 @@ function addNewBook() {
     .addEventListener("click", changeReadStatus);
   parentBooks.insertBefore(clone, addNew);
 
-  // newTitle.value = '';
-  // newAuthor.value = '';
-  // newPages.value = '';
-  // isRead.checked = false;
+  newTitle.value = '';
+  newAuthor.value = '';
+  newPages.value = '';
+  isRead.checked = false;
 
   overlay.classList.remove("show");
   modal.classList.remove("show");
