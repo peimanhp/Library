@@ -52,7 +52,7 @@ submit.addEventListener("click", addNewBookToArray);
 
 let bookNumber = 1;
 
-function addNewBookToArray() {
+function addNewBookToArray(e) {
   const newBook = new Book(
     bookNumber,
     newTitle.value,
@@ -65,12 +65,12 @@ function addNewBookToArray() {
   console.log(myLibrary);
 
   addBookToLibrary();
+  e.preventDefault();
 }
 
-function addBookToLibrary() {
-  let books = document.getElementById(`book${bookNumber}`);
-  console.log(books);
+let books = [];
 
+function addBookToLibrary() {
   numbers.innerText = `No. ${bookNumber}`;
   title.innerText = myLibrary[bookNumber - 1].title;
   author.innerText = `Author: ${myLibrary[bookNumber - 1].author}`;
@@ -85,11 +85,11 @@ function addBookToLibrary() {
     .addEventListener("click", changeReadStatus);
   parentBooks.insertBefore(clone, addNew);
 
-  newTitle.value = '';
-  newAuthor.value = '';
-  newPages.value = '';
-  isRead.checked = false;
+  const bookElement = document.getElementById(`book${bookNumber - 1}`);
+  books.push(bookElement);
+  console.log(books);
 
+  modal.reset();
   overlay.classList.remove("show");
   modal.classList.remove("show");
 }

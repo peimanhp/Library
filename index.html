@@ -67,7 +67,7 @@
     <!-- Modal -->
     <!-- winner pop-up message -->
     <div class="overlay rounded-3 d-flex justify-content-center align-items-center" id="overlay">
-        <div class="my-modal shadow text-center">
+        <form class="my-modal shadow text-center">
             <h3 class="mb-4" id="add_new_book">Add new book</h3>
             <input class="form-control my-3" type="text" placeholder="Title" aria-label="title" id="new_title" data-autofocus>
             <input class="form-control my-3" type="text" placeholder="Author" aria-label="author" id="new_author">
@@ -76,8 +76,8 @@
                 <p>have you read it?</p>
                 <input class="form-check-input ms-3" type="checkbox" value="false" id="read_it">
             </div>
-            <button class="btn btn-outline-success px-4" id="submit">Submit</button>
-        </div>
+            <input type="submit" value="Submit" class="btn btn-outline-success px-4" id="submit">
+        </form>
     </div>
 
     <script src="./js/book.js"></script>
