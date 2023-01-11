@@ -1,17 +1,10 @@
 import { createModal } from "./modal.js";
 
 // grabbing library elements
-const book = document.getElementById("book");
-const numbers = document.querySelector(".number");
 const nums = document.getElementsByClassName("number");
-const title = document.querySelector(".book-title");
-const author = document.querySelector(".book-author");
-const pages = document.querySelector(".book-pages");
-const readToggle = document.querySelector(".read-switch");
 const newItem = document.querySelector(".new-item");
 const addNew = document.getElementById("add_new");
 const parentBooks = document.getElementById("parent_books");
-const remove = document.getElementsByClassName("remove");
 
 function Book(num, title, author, pages, read, bookId) {
   this.num = num;
@@ -28,31 +21,15 @@ Book.prototype.info = function () {
 
 let myLibrary = [];
 
-newItem.addEventListener("click", createModal);
-
 let bookNumber = 1;
 
-let books = [];
-
-function addBookToLibrary() {
-  numbers.innerText = `No. ${bookNumber}`;
-  title.innerText = myLibrary[bookNumber - 1].title;
-  author.innerText = `Author: ${myLibrary[bookNumber - 1].author}`;
-  pages.innerText = `Pages: ${myLibrary[bookNumber - 1].pages}`;
-  readToggle.checked = myLibrary[bookNumber - 1].read;
-
-  let clone = book.cloneNode(true);
-  clone.id = "book" + bookNumber++;
-  clone.querySelector(".remove").addEventListener("click", removeBook);
-  clone
-    .querySelector(".read-switch")
-    .addEventListener("click", changeReadStatus);
-  parentBooks.insertBefore(clone, addNew);
-
-  const bookElement = document.getElementById(`book${bookNumber - 1}`);
-  books.push(bookElement);
-  console.log(books);
+function bookNumberPlusOne() {
+  bookNumber++;
 }
+
+newItem.addEventListener("click", createModal);
+
+let books = [];
 
 function removeBook(e) {
   // remove in html dom
@@ -69,7 +46,7 @@ function removeBook(e) {
   });
   // rename title of each card
   for (let i = 0; i < nums.length; i++) {
-    nums[i].innerText = `No. ${i}`;
+    nums[i].innerText = `No. ${i + 1}`;
   }
   bookNumber--;
   console.log(myLibrary);
@@ -83,4 +60,14 @@ function changeReadStatus(e) {
   else myLibrary[indexInArray].read = true;
 }
 
-export { Book, myLibrary, bookNumber, addBookToLibrary };
+export {
+  Book,
+  myLibrary,
+  parentBooks,
+  addNew,
+  changeReadStatus,
+  books,
+  bookNumberPlusOne,
+  bookNumber,
+  removeBook,
+};

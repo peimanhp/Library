@@ -1,4 +1,5 @@
-import { Book, bookNumber, myLibrary, addBookToLibrary } from "./book.js";
+import { Book, myLibrary, bookNumber } from "./book.js";
+import { addNewBookInDOM } from "./newBookDOM.js";
 
 export function createModal() {
   const hideModalOnSecape = function (e) {
@@ -94,19 +95,41 @@ export function createModal() {
   submitBtn.addEventListener("click", addNewBookToArray);
 
   function addNewBookToArray(e) {
+    e.preventDefault();
+
+    // necessary filling fields
+    const titleValue = document.getElementById("new_title").value;
+    if (titleValue.trim() == "") {
+      alert("title is empty");
+      return;
+    }
+    const authorValue = document.getElementById("new_author").value;
+    if (authorValue.trim() == "") {
+      alert("author is empty");
+      return;
+    }
+    const pagesValue = document.getElementById("new_pages").value;
+    if (pagesValue.trim() == "") {
+      alert("pages is empty");
+      return;
+    }
+
     const newBook = new Book(
       bookNumber,
       titleInput.value,
       authorInput.value,
       pagesInput.value,
       modalReadCheck.checked,
-      "book" + bookNumber
+      bookId()
     );
     myLibrary.push(newBook);
     console.log(myLibrary);
 
-    addBookToLibrary();
+    addNewBookInDOM();
     hideModal();
-    e.preventDefault();
+  }
+
+  function bookId() {
+    return Math.floor(Math.random() * Date.now()).toString(16);
   }
 }
