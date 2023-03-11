@@ -6,18 +6,19 @@ const newItem = document.querySelector(".new-item");
 const addNew = document.getElementById("add_new");
 const parentBooks = document.getElementById("parent_books");
 
-function Book(num, title, author, pages, read, bookId) {
-  this.num = num;
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.bookId = bookId;
+class Book {
+  constructor(num, title, author, pages, read, bookId) {
+    this.num = num;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.bookId = bookId;
+  }
+  info() {
+    return `No. ${this.num}: ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+  }
 }
-
-Book.prototype.info = function () {
-  return `No. ${this.num}: ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-};
 
 let myLibrary = [];
 
