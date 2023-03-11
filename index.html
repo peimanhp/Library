@@ -31,26 +31,6 @@
                 </div>
             </div>
             <div class="row m-auto" id="parent_books">
-                <!-- sample book -->
-                <div class="col col-3 mb-3" id="book">
-                    <div class="card h-100 text-bg-light rounded-4 mx-auto" style="max-width: 18rem;">
-                        <div class="card-header rounded-top-4 d-flex justify-content-between">
-                            <p class="m-0 number">No. 1</p>
-                            <div class="remove"><img src="./resources/x-circle.svg" alt="remove"></div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title book-title">Book title</h5>
-                            <p class="mb-1 book-author">Author:</p>
-                            <p class="mb-2 book-pages">Pages:</p>
-                            <div class="form-check form-switch mb-2">
-
-                                <label class="form-check-label" for="read_switch">Read
-                                    <input class="form-check-input read-switch" type="checkbox" role="switch">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col col-3 mb-3" id="add_new">
                     <div class="new-item mx-auto h-100 border rounded-4 d-flex align-items-center justify-content-center"
                         style="max-width: 18rem;">
@@ -63,24 +43,7 @@
             Copyright © 2022 Peiman Hosseini
         </footer>
     </div>
-
-    <!-- Modal -->
-    <!-- winner pop-up message -->
-    <div class="overlay rounded-3 d-flex justify-content-center align-items-center" id="overlay">
-        <form class="my-modal shadow text-center">
-            <h3 class="mb-4" id="add_new_book">Add new book</h3>
-            <input class="form-control my-3" type="text" placeholder="Title" aria-label="title" id="new_title" data-autofocus>
-            <input class="form-control my-3" type="text" placeholder="Author" aria-label="author" id="new_author">
-            <input class="form-control my-3" type="text" placeholder="Pages" aria-label="pages" id="new_pages">
-            <div class="d-flex justify-content-center">
-                <p>have you read it?</p>
-                <input class="form-check-input ms-3" type="checkbox" value="false" id="read_it">
-            </div>
-            <input type="submit" value="Submit" class="btn btn-outline-success px-4" id="submit">
-        </form>
-    </div>
-
-    <script src="./js/book.js"></script>
+    <script type="module" src="./js/book.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
 
